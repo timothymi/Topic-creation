@@ -1,0 +1,22 @@
+# Required connection configs for Kafka producer, consumer, and admin
+spring:
+  kafka:
+    properties:
+      sasl.mechanism: PLAIN
+      bootstrap.servers: pkc-2396y.us-east-1.aws.confluent.cloud:9092
+      sasl.jaas.config: org.apache.kafka.common.security.plain.PlainLoginModule   required username='4KHHQXZPFDDYJCBT'   password='qr1BBUVKhoRZuSzpW8JY6ElD7NU4lL47SvCoIVJZWl9cFbRoolZorBB1a4idk31e';
+      security.protocol: SASL_SSL
+
+# Best practice for higher availability in Apache Kafka clients prior to 3.0
+      session.timeout.ms: 45000
+
+# Required connection configs for Confluent Cloud Schema Registry
+      basic.auth.credentials.source: USER_INFO
+      basic.auth.user.info: T32U7PAVH7ZASFRE:NN8x/vfn3gBCse7IsIXsvrU8NLHrD0ZCNHG2JySpEYxOqT+wt9448TMoz/GQq6/D
+      schema.registry.url: https://psrc-8vyvr.eu-central-1.aws.confluent.cloud
+
+topics:
+  asset-commercial:
+    name: "Asset"
+    partitions: 3
+    replicas: 3
